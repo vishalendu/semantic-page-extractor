@@ -84,6 +84,12 @@ uv run python examples/standalone_example.py
 
 - `--output-format compact`  
   Returns indexed compact payload (`r`, `t`, `c`, `i`) with shared dictionaries for repeated role/text/context strings. This usually gives the best size reduction for LLM-oriented usage.
+  What it does:
+  - Converts actionable list output into a compact indexed payload
+  - `r`: role dictionary
+  - `t`: text dictionary (`visible_text` fallback `aria_label`)
+  - `c`: section-context dictionary
+  - `i`: items as index rows `[role_idx, text_idx, context_idx, optional_disabled_flag]`
 
 Base usage:
 ```bash
